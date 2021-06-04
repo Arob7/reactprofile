@@ -1,24 +1,42 @@
-import logo from './logo.svg';
-import './App.css';
-
+import "./App.css";
+import { useState } from "react";
+import Header from "./Components/Header";
+import Display from "./Components/Display";
+import Footer from "./Components/Footer";
+import Counter from "./Components/Counter";
 function App() {
+  const [demo, setDemo] = useState("My Name is Arion");
+
+  const handleName = () => {
+    setDemo("My Name is Arion");
+  };
+
+  const handleSkill = () => {
+    setDemo("I'm a Frontend Developer");
+  };
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <main>
+        <div className="card">
+          <Header />
+
+          <Display info={demo} />
+          <div className="btn">
+            <button className="name" onClick={handleName}>
+              Name
+            </button>
+            <button className="skill" onClick={handleSkill}>
+              Skills
+            </button>
+          </div>
+          <Counter />
+          <div className="footer">
+            <Footer />
+          </div>
+        </div>
+      </main>
+    </>
   );
 }
 
